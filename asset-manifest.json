@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/TowerDefenseGame/static/css/main.32178d37.css",
+    "main.js": "/TowerDefenseGame/static/js/main.526d7393.js",
+    "static/js/787.cda612ba.chunk.js": "/TowerDefenseGame/static/js/787.cda612ba.chunk.js",
+    "static/media/backgroundForest.png": "/TowerDefenseGame/static/media/backgroundForest.e1d17dd2e15e81b62037.png",
+    "static/media/cat3.png": "/TowerDefenseGame/static/media/cat3.be4c1d9f8fe515794a5a.png",
+    "static/media/tower.png": "/TowerDefenseGame/static/media/tower.7c9b3a2f54e0ff018e15.png",
+    "static/media/cat2.png": "/TowerDefenseGame/static/media/cat2.adc8e134cfaf1fe0781f.png",
+    "static/media/cat1.png": "/TowerDefenseGame/static/media/cat1.704659df10ec31b0f97b.png",
+    "static/media/0.png": "/TowerDefenseGame/static/media/0.a7dbe90751a01b975b95.png",
+    "static/media/characterTest.png": "/TowerDefenseGame/static/media/characterTest.c5e12e3645e604166eaf.png",
+    "static/media/starburst.png": "/TowerDefenseGame/static/media/starburst.9aec57738ce51a000d0f.png",
+    "static/media/weakdoge.png": "/TowerDefenseGame/static/media/weakdoge.55eed165dc2741ac0471.png",
+    "static/media/ie.png": "/TowerDefenseGame/static/media/ie.e6cda40875924e8431a4.png",
+    "index.html": "/TowerDefenseGame/index.html",
+    "main.32178d37.css.map": "/TowerDefenseGame/static/css/main.32178d37.css.map",
+    "main.526d7393.js.map": "/TowerDefenseGame/static/js/main.526d7393.js.map",
+    "787.cda612ba.chunk.js.map": "/TowerDefenseGame/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32178d37.css",
+    "static/js/main.526d7393.js"
+  ]
+}
