@@ -1,0 +1,163 @@
+
+#UI {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color: rgba(100,100,100,50%);
+}
+.CharacterButton {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 16vh;
+    height: 16vh;
+    transform: translate(-50%,-50%);
+}
+.costText{
+    position:absolute;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    justify-content: center;
+    color:black;
+    font-size: 2vh;
+    font-weight: 900;
+    top:  10%;
+    left: 0;
+}
+.dragComponentTest{
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.8vh;
+    border: 1vh solid black;
+    position: absolute;
+    background-color: white;
+}
+#battleField {
+    overflow-x:scroll;
+    overflow-y: hidden;
+    perspective-origin:55.5vh -50vh;
+    perspective: 455vh;
+    display: block;
+    position: absolute;
+    width: 222vh;
+    height: 100vh;
+    background-color: black;
+
+}
+
+#background {
+    position: absolute;
+    transform-style: preserve-3d;
+    background-image: url('../../img/backgroundForest.png');
+    /* background-color: gray; */
+    background-size: cover;
+    background-position: bottom;
+    width: 222vh;
+    height: 100vh;
+    transform: translate3d(6vh,-8vh,0px) scale(170%,150%);
+}
+
+.tile {
+    background-color: transparent;
+    /* border: 1px solid black; */
+    backface-visibility: hidden;
+    position: absolute;
+    /* border-top: 2px solid black; */
+    /* border-bottom: 2px solid black; */
+    width: calc(var(--size,100)*2.22vh);
+    height: calc(var(--size,100)*2.22vh);
+    transform-style: preserve-3d;
+    transition-duration: 800ms;
+    transform-origin: center;
+    transform: translate3d(calc(var(--x,0)*2.22vh),calc(40vh),calc(var(--y,0)*2.22vh)) rotateX(90deg);
+}
+
+#pause {
+    position:absolute;
+    left: 11.1vh;
+    top: 5vh;
+    width: 9vh;
+    height: 9vh;
+    border: 1vh solid black;
+    border-radius: 1.2vh;
+    background-color: orange;
+}
+
+#leaveStage{
+    position:absolute;
+    left: 22.2vh;
+    top: 5vh;
+    width: 9vh;
+    height: 9vh;
+    border: 1vh solid black;
+    border-radius: 1.2vh;
+    background-color: orange;
+}
+
+#cost {
+    position:absolute;
+    left: 80vw;
+    top: 5vh;
+    width: 9vh;
+    height: 9vh;
+    background-color: transparent;
+    font-size: 6vh;
+    font-weight: 900;
+    color: white;
+    -webkit-text-stroke: .3vh black; /* width and color */
+    justify-content: space-between;
+}
+
+
+#stageTitle {
+    position:absolute;
+    left: 36.5vh;
+    top: 5vh;
+    width: fit-content;
+    height: 9vh;
+    background-color: transparent;
+    font-size: 6vh;
+    font-weight: 999;
+    color: white;
+    -webkit-text-stroke: .2vh black; /* width and color */
+    justify-content: space-between;
+}
+
+.Tower{
+    background-color: transparent;
+    /* border: 1px solid black; */
+    position: absolute;
+    left:0;top:0;
+    width: 33.3vh;
+    height: auto;
+    transform-style: preserve-3d;
+    transform-origin: center;
+}
+
+.enemyTower {    
+    transform: scaleX(-1) translate3d(4.4vh,40vh,0vh) translate3d(0,-50%,0);
+}
+
+.myTower {
+    transform: translate3d(191.4vh,40vh,0vh) translate3d(0,-50%,0);
+}
+
+.myTowerHP{
+    transform: translate3d(196vh,85vh,0vh) translate3d(0,-50%,0);
+    font-size: 5vh;
+    font-weight: 900;
+    color: red;
+    -webkit-text-stroke:.2vh black;
+}
+.enemyTowerHP{
+    transform: translate3d(3vw,85vh,0vh) translate3d(0,-50%,0);
+    font-size: 5vh;
+    font-weight: 900;
+    color: red;
+    -webkit-text-stroke:.2vh black;
+}

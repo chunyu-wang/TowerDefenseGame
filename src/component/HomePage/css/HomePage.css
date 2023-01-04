@@ -1,0 +1,61 @@
+#buttonWrapper {
+    width: 100%;
+    padding: 0%;
+    height: 100%;
+    margin: 0px;
+    background-color: orange;
+    position: absolute;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 2.5vh;
+}
+
+#HomePage{
+    position: absolute;
+    width: 100%;height: 100%;
+    margin: 0;padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#Home {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    margin: 0;
+}
+
+#HomePageUI {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    margin: 0;
+}
+
+#HomePageTitle{
+    position: absolute;
+    top: 40%;left: 50%;
+    transform: translate(-50%,-40%);
+    font-size: 12vh;
+    box-shadow: 10vh;
+    text-align: center;
+    width: fit-content;height: fit-content;
+    padding: 3vh;
+    font-weight: 900;
+    border-radius: 8vh;
+    border: inset 1vh orange;
+}
+
+#Instruction{
+    position: absolute;
+    left: 50%;top: 85%;
+    transform: translate(-50%,-85%);
+    font-size: 5vh;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1vh;
+    border: darkgray 1vh;
+    border-style:outset;
+}

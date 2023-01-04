@@ -1,0 +1,49 @@
+.CharacterContainer{
+    position: absolute;
+    transform-style: preserve-3d;
+    display: block;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    margin: 0px;padding: 0px;
+}
+
+.CharacterSprite {
+    /* background-color: rgba(100, 100, 0, 30%); */
+    /* border: 1px solid black; */
+    position: absolute;
+    width: calc(var(--size,100)*2.22vh);
+    height: calc(var(--size,100)*2.22vh);
+    background-size: cover;
+    transform-style: preserve-3d;
+    /* transition:25ms; */
+    transform-origin: center;
+    transform: translate3d(calc(var(--x,0)*2.22vh),calc(40vh),calc(var(--y,0)*2.22vh)) translateY(-50%);
+    image-rendering: optimizeSpeed;
+}
+
+.enemy {
+    transform: translate3d(calc(var(--x,0)*2.22vh),calc(40vh),calc(var(--y,0)*2.22vh)) translateY(-50%) scaleX(-1);
+}
+
+.hpBar {
+    background-color: transparent;
+    border:1.5px solid black;
+    border-radius: 3px;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    border-style: solid;
+    position: absolute;
+    width: 10vh;
+    height: 1.8vh;
+    left: 0%;
+    top: 0%;
+    display: flex;
+    flex-direction: row;
+}
+
+.bar {
+    height: 100%;
+    position: relative;
+}
+

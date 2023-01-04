@@ -1,0 +1,160 @@
+.ant-modal-wrap > div {
+    height: auto;
+}
+
+
+#BackpackContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+#BackpackPage {
+    position: relative;
+    margin: 0;
+    /* background-color: black;  */
+    box-sizing: border-box;
+    height: 80%;
+    width:100%;
+    background-color: darkgoldenrod;
+    align-self: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    display: flex;
+    flex-direction: row;
+    justify-content:safe;
+    gap: 2vh;
+    flex-wrap: wrap;
+}
+#BackpackPage::-webkit-scrollbar {
+    display: none;
+}
+
+.BackpackCard {
+    background-color: white;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 42vh;
+    height: 70vh;
+    border-radius: 1vh;
+    overflow: hidden;
+    border: .4vh solid black;
+}
+
+.CardDescription {
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 100%;
+    transform: translate(0,-100%);
+    background-color:indianred;
+    border: .5vh solid black;
+    border-radius: .6vh;
+}
+
+.BackpackCardTitle {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin: 0;padding: 0;
+    left: 0%;
+    top:0%;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 5.5vh;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 300;
+}
+.BackpackCardImage {
+    position: relative;
+    left: 0;top:35%;
+    transform: translate(0,-50%);
+    margin: 0;padding: 0;
+    image-rendering: optimizeQuality;
+    width: 100%;
+    height:auto;
+}
+.LevelUpButton {
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%,-100%);
+    background-color:sienna;
+    width: 60%;
+    height: auto;
+    text-align: center;
+    font-size: 3.6vh;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: .4vh solid black;
+    border-radius: .8vh;
+}
+.InfoButton {
+    width: 5vh;
+    height: 5vh;
+    position: sticky;
+    left: 100%;
+    top: 1500%;
+    background-color: wheat;
+    border-radius: 100%;
+}
+.InfoButton > p {
+    height: auto;
+    width: 100%;
+    justify-content: space-around;
+    position: absolute;
+    top: 50%;
+    font-size: 1vh;
+    transform: translate(5%,-50%);
+}
+
+.CardLevel {
+    position: absolute;
+    width: 100%;
+    font-weight: 750;
+    height: auto;
+    justify-content: left;
+    text-align: right;
+    top:70%;
+    transform: translate(-0.8vh,-100%);
+}
+
+#LeaveBackpack {
+    width: 10vh;
+    height: 10vh;
+    text-align: center;
+    position: absolute;
+    left: 90%;
+    top: 90%;
+    font-weight: 750;
+    border-radius: 100%;
+}
+
+.BackpackCardWrapper {
+    width: 42vh;
+    height: 70vh;
+}
+
+#BackpackUI {
+    width:100%;
+    height:20%;
+    position: relative;
+    margin: 0;padding: 0;
+}
+
+#characterInfo{
+    width: 98vh;
+    height: 60vh;
+    position: absolute;
+    display: block;
+    left: 50%;top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: aquamarine;
+}
+
+
