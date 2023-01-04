@@ -18,8 +18,8 @@ function App() {
     <GameDataProvider>
     <Router>
       <Routes>
-        <Route path='/*' element={<Navigate to="/404" />}/>
-        <Route exact path='/' element={<Navigate to="/Login"/>}/>
+        {/* <Route path='/*' element={<Navigate to="/404" />}/> */}
+        <Route path='/*' element={<Navigate to="/Login"/>}/>
         <Route exact path='/Login' element={<Login/>}/>
         <Route exact path='/Gotcha' element={<Gotcha/>}/>
         <Route exact path='/HomePage' element={<HomePage/>}/>
@@ -28,7 +28,7 @@ function App() {
         <Route exact path='/Troop' element={<Troop/>}/>
         <Route exact path='/Backpack' element={<Backpack/>}/>
         <Route exact path='/404' element={<FourZeroFour/>}/>
-        <Route element={<FourZeroFour/>}/>
+        {/* <Route element={<FourZeroFour/>}/> */}
       </Routes>
     </Router>
     </GameDataProvider>
