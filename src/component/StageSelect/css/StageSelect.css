@@ -24,6 +24,9 @@
     scrollbar-width: none;  /* Firefox */
     gap:3vh;
     padding: 11.1vh;
+    background-image: url('../../img/backgroundStageSelect.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #stagesWrapper::-webkit-scrollbar {
     display: none;

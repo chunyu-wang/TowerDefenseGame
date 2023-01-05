@@ -86,6 +86,8 @@ body{
     font-size: 20;
     overflow: hidden;
     text-align: center;
+    background-color: rgba(255,255,255,50%);
+    font-weight: 800;
 }
 
 .cardWrapper {
@@ -126,16 +128,4 @@ body{
     position: relative;
     background-color: transparent;
     gap: 10vh;
-}
-
-#saveTroop{
-    border-radius: 5px;
-    height: 10vh;
-    width: 30vh;
-}
-
-#leave{
-    border-radius: 5px;
-    height:10vh;
-    width: 30vh;
 }

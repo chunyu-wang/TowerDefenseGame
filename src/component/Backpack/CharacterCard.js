@@ -6,7 +6,7 @@ const CharacterCard = ({name,level,levelUp,Info,money}) => {
     return (
         <div className="BackpackCard" key={name+'Card'+Math.random()}>
             <img className="BackpackCardImage"
-            src = {(name.length>1)?require('../img/'+name+'.png'):undefined}/>
+            src = {(name.length>1)?require('../img/icon/'+name+'.png'):undefined}/>
 
             <p className='CardLevel'>
                 {`Lv. ${level}/99`}

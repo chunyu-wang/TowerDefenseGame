@@ -5,13 +5,22 @@ import './css/Backpack.css'
 import UserPanel from '../UserPanel/UserPanel';
 import { useEffect, useState } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { Button, Modal } from 'antd';
+import { Button, Modal, message } from 'antd';
 const BackpackPage = () => {
     const {yourCharacters,setYourCharacters,setCharacterLevel} = useUserInfo();
     const {characters} = useGameData();
     const { money } = useUserInfo();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent,setModalContent] = useState({});
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const error = (payload) => {
+        messageApi.open({
+          type: 'error',
+          content: <p>{payload}</p>,
+          style: {width:'25vh',height:'fit-content',margin:'5vh',display:'flex',flexDirection:'row'}
+        });
+    };
 
     const showModal = ({name})=>{
         const thisCharacter = characters.filter((c)=>(c.name===name))[0];
@@ -22,11 +31,11 @@ const BackpackPage = () => {
 
     const levelUp = ({name})=>{
         if(yourCharacters[name] >= 99){
-            alert('已升至最高等級');
+            error('已升至最高等級');
             return;
         }
         if(money < yourCharacters[name]*10){
-            alert('金幣不足，無法升級');
+            error('金幣不足，無法升級');
             return;
         }
         setCharacterLevel({characterName:name});
@@ -81,6 +90,7 @@ const BackpackPage = () => {
             {(modalContent.targetLength)?<div key="rng">射程:     {modalContent.targetLength}</div>:<></>}
             {(modalContent.cost)?        <div key="cst">消耗費用: {modalContent.cost}</div>:<></>}
         </Modal>
+        {contextHolder}
         </>
     )
 }

@@ -10,7 +10,7 @@ const CharacterButton = ({img,column,row,cost}) => {
             onClick={(e)=>{e.preventDefault();}}
             onDrag={(e)=>{e.preventDefault();}}
             onDragStart={(e)=>{e.dataTransfer.setData('Dragged',e.target.id);}}
-            src = {(img.length!==1)?require('../img/'+img+'.png'):undefined}
+            src = {(img.length!==1)?require('../img/icon/'+img+'.png'):undefined}
         />
         <p className = "costText">
             {(cost)?`$${cost}`:''}

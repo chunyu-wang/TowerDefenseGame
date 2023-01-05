@@ -2,11 +2,21 @@ import {useUserInfo} from '../../container/hook/useUserInfo';
 import UserPanel from '../UserPanel/UserPanel';
 import { useState } from 'react';
 import './css/gotcha.css';
-import { Button, Modal } from 'antd';
+import { Button, Modal, message } from 'antd';
 const GotchaPage = ()=>{
     const {diamond,Gotcha} = useUserInfo();
     const [open,setOpen] = useState(false);
     const [gotchaResult,setGotchaResult] = useState([]);
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const error = (payload) => {
+        messageApi.open({
+          type: 'error',
+          content: <p>{payload}</p>,
+          style: {width:'25vh',height:'fit-content',margin:'5vh',display:'flex',flexDirection:'row'}
+        });
+    };
+
     const delayRoll = async(count)=>{
         setTimeout(async()=>{
             const item = await Gotcha();
@@ -16,13 +26,14 @@ const GotchaPage = ()=>{
         return;
     }
     const roll = async(count)=>{
+        console.log(count,diamond);
         if(count * 10 <= diamond){
             setGotchaResult(()=>[]);
             setOpen(true);
             delayRoll(count);
         }
         else {
-            alert('diamond is not enough');
+            error('鑽石不足');
             //console.log('diamond is not enough')
         }
     }
@@ -64,6 +75,7 @@ const GotchaPage = ()=>{
                 </div>
             }
         </Modal>
+        {contextHolder}
     </div>)
 }
 

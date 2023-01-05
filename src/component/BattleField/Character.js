@@ -1,7 +1,7 @@
 import './css/Character.css' 
 
 export class Character{
-    constructor(x, y, img, tag=[], cost, speed, targetLength, hp, atk, atkCD,){
+    constructor(x, y, img, tag=[], cost, speed, targetLength, hp, atk, atkCD, lvl){
         this.x = (x===undefined)?50:x;
         this.y = (y===undefined)?50:y;
         this.maxhp = hp || 100;
@@ -12,6 +12,7 @@ export class Character{
         this.speed = speed || 0.1;
         this.tag = tag;
         this.cost = cost || 100;
+        this.lvl = lvl || 1;
 
         this.targetLength = targetLength || 150;
         this.target = undefined;

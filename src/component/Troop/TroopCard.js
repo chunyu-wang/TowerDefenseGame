@@ -5,7 +5,7 @@ const TroopCard = ({name,changeTroop,index}) =>{
     return (
         <div className="CharacterCard" key={name+Math.random()}>
             <img className = "CharacterImage"
-            src = {(name.length<=1)?undefined:require('../img/'+name+'.png')}
+            src = {(name.length<=1)?undefined:require('../img/icon/'+name+'.png')}
             onDragStart={(e)=>{e.preventDefault();return false;}}
             onDragEnter={(e)=>{e.preventDefault();e.target.style.backgroundColor='red'}}
             onDragLeave={(e)=>{e.preventDefault();e.target.style.backgroundColor='transparent'}}

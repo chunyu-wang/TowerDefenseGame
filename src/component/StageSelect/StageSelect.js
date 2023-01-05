@@ -3,13 +3,24 @@ import { useUserInfo } from '../../container/hook/useUserInfo'
 import {useNavigate} from 'react-router-dom'
 import './css/StageSelect.css'
 import UserPanel from '../UserPanel/UserPanel'
-import { SmallDashOutlined } from '@ant-design/icons'
+import { SmallDashOutlined} from '@ant-design/icons'
+import {message} from 'antd'
 
 const StageSelectPage = ()=>{
     const {stages} = useGameData();
     const {gameProgress} = useUserInfo();
 
     const navigate = useNavigate();
+
+    const [messageApi, contextHolder] = message.useMessage();
+
+    const error = (payload) => {
+        messageApi.open({
+          type: 'error',
+          content: <p>{payload}</p>,
+          style: {width:'25vh',height:'fit-content',margin:'5vh',display:'flex',flexDirection:'row'}
+        });
+    };
 
     return(
         <div id="stageSelectPage" key="stageSelectPage">
@@ -27,7 +38,7 @@ const StageSelectPage = ()=>{
                                         stageID:i,}})}}>
                                         <p key={i+'stagetitle'}className='stagesTitle'>{s.name}</p>
                                     </div>:
-                                    <div className='stages locked' key={i+'stage.'} onClick={()=>alert('請先完成前一關才能挑戰這一關!')}>
+                                    <div className='stages locked' key={i+'stage.'} onClick={()=>error('請先完成前一關才能挑戰這一關!')}>
                                         <p key={i+'stagetitle.'}className='stagesTitle'>{"關卡尚未解鎖"}</p>
                                     </div>
                                 }
@@ -40,6 +51,7 @@ const StageSelectPage = ()=>{
             <div id="stageSelectUI" key='stageSelectUI'>
                 <UserPanel key='UserPanel'></UserPanel>
             </div>
+            {contextHolder}
         </div>
     )
 }

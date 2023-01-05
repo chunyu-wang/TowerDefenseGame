@@ -17,7 +17,7 @@
 }
 .costText{
     position:absolute;
-    width: 100%;
+    width: 88%;
     height: fit-content;
     text-align: center;
     justify-content: center;
@@ -25,7 +25,9 @@
     font-size: 2vh;
     font-weight: 900;
     top:  10%;
+    transform: translate(5%,0);
     left: 0;
+    background-color: rgba(255,255,255,40%);
 }
 .dragComponentTest{
     left: 0px;
@@ -88,6 +90,12 @@
     background-color: orange;
 }
 
+#pause:hover{
+    filter: brightness(180%) grayscale(60%);
+    transition: 300ms;
+    transition-timing-function: ease-out;
+}
+
 #leaveStage{
     position:absolute;
     left: 22.2vh;
@@ -98,6 +106,13 @@
     border-radius: 1.2vh;
     background-color: orange;
 }
+
+#leaveStage:hover{
+    filter: brightness(180%) grayscale(60%);
+    transition: 300ms;
+    transition-timing-function: ease-out;
+}
+
 
 #cost {
     position:absolute;

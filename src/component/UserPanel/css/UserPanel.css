@@ -24,6 +24,12 @@
     border-radius: 20px;
 }
 
+#UserPanel > button:hover {
+    background-color: rgb(222,210,34);
+    transition: 500ms;
+    transition-timing-function: ease-out;
+}
+
 #UserPanel > button > .UserPanelIcon {
     width: 80%;
     height:80%;

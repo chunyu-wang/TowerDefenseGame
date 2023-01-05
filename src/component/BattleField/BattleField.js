@@ -11,6 +11,7 @@ import { DollarOutlined, SketchOutlined } from '@ant-design/icons'
 
 
 const BattleField = ({tile_size,tiles})=>{
+
     const {tick,timerPause} = useTime();
     const [myCharacters,setMyCharacters] = useState([]);
 
@@ -18,17 +19,17 @@ const BattleField = ({tile_size,tiles})=>{
     const navigate = useNavigate();
 
     const [cost,setCost] = useState(98);
-    const generateCostRate = 1;
+    const generateCostRate = 2;
 
     const {stages, characters} = useGameData();
-    const [stage,setStage] = useState(JSON.parse(JSON.stringify(stages[(state)?state.stageID:0].enemys)));
+    const [stage,setStage] = useState((state)?JSON.parse(JSON.stringify(stages[state.stageID].enemys)):[]);
 
     const {yourCharacters, setWinStage, gainMoney, gainDiamond} = useUserInfo();
     
-    const yourTowerMax = 500;
-    const [yourTower,setYourTower] = useState(500);
-    const enemyTowerMax = (state)?stages[state.stageID].tower:123;
-    const [enemyTower,setEnemyTower] = useState((state)?stages[state.stageID].tower:123);
+    const yourTowerMax = 100;
+    const [yourTower,setYourTower] = useState(yourTowerMax);
+    const enemyTowerMax = (state)?stages[state.stageID]?.tower:123;
+    const [enemyTower,setEnemyTower] = useState((state)?stages[state.stageID]?.tower:123);
 
     const [gameFinish,setGameFinish] = useState(false);
     const [win,setWin] = useState(undefined);
@@ -55,7 +56,8 @@ const BattleField = ({tile_size,tiles})=>{
                 thisCharacter.targetLength,
                 thisCharacter.hp * (level*0.25+0.75),
                 thisCharacter.atk* (level*0.25+0.75),
-                thisCharacter.atkCD);
+                thisCharacter.atkCD,
+                level);
             setMyCharacters((old)=>([...old,newCharacter]));
         }
         return;
@@ -149,7 +151,8 @@ const BattleField = ({tile_size,tiles})=>{
                     thisCharacter.targetLength,
                     thisCharacter.hp  * (e.level*0.25+0.75),
                     thisCharacter.atk * (e.level*0.25+0.75),
-                    thisCharacter.atkCD);
+                    thisCharacter.atkCD,
+                    e.level);
                 setMyCharacters((old)=>([...old,newCharacter]));
                 e.countReSpawn = e.reSpawnTime;
                 e.count -= 1;
@@ -220,6 +223,9 @@ const BattleField = ({tile_size,tiles})=>{
         gainCost();
         return;
     }
+    useEffect(()=>{
+        if(!state || !stages[state.stageID]?.tower)navigate('/Login');
+    },[])
 
     useEffect(()=>{
         if(win==='win')
@@ -232,6 +238,7 @@ const BattleField = ({tile_size,tiles})=>{
     },[tick])
 
     return (
+        <>
         <div id='battleField'>
             <div id='background'></div>
             {
@@ -246,12 +253,12 @@ const BattleField = ({tile_size,tiles})=>{
                         draggable='false'
                         Style={`--x:${i*tile_size};--y:${j*tile_size};--size:${tile_size};`}
                         onDragStart={(e)=>{e.preventDefault();return false;}}
-                        onDragEnter={(e)=>{e.preventDefault();if(i>5)e.target.style.backgroundColor='red'}}
-                        onDragLeave={(e)=>{e.preventDefault();if(i>5)e.target.style.backgroundColor='transparent'}}
+                        onDragEnter={(e)=>{e.preventDefault();if(i>=4)e.target.style.backgroundColor='red'}}
+                        onDragLeave={(e)=>{e.preventDefault();if(i>=4)e.target.style.backgroundColor='transparent'}}
                         onDragOver={(e)=>{e.preventDefault();}}
                         onDrop={
                             (e)=>{
-                            if(i<=5)return;
+                            if(i<4)return;
                             if(e.dataTransfer.getData('Dragged')!==''){
                                 generateCharacter({id:e.dataTransfer.getData('Dragged'),x:i,y:j});
                             }
@@ -266,7 +273,6 @@ const BattleField = ({tile_size,tiles})=>{
             <p key='myTowerHP' className='Tower myTowerHP'>{`${yourTower} / ${yourTowerMax}`}</p>
             <img className='Tower enemyTower' src={require('../img/tower.png')}></img>
             <p key='enemyTowerHP' className='Tower enemyTowerHP'>{`${enemyTower} / ${enemyTowerMax}`}</p>
-            <UI cost={cost} stageName={(state)?stages[state.stageID].name:'未確認關卡'}/>
             <Modal
             title={(win==='win')?'大獲全勝':'慘敗...'}
             open={gameFinish}
@@ -293,18 +299,19 @@ const BattleField = ({tile_size,tiles})=>{
                 <>
                     <p id="youLose" key="youLose">
                         {
-                            ['這個隊伍齁就是遜啦',
+                            ['重複挑戰先前的關卡可以獲取鑽石，用轉蛋增強自身的實力',
                             '這麼簡單的關卡都能輸，雜魚❤',
                             '雖然是遊戲輸掉，但這可不是鬧著玩的',
                             '試著強化隊伍角色或改變隊伍來加強你的戰力吧',
-                            '這到底是甚麼閃現阿',
-                            '前往(https://r.mtdv.me/k8kSIy65cN)即可觀看最新攻略'][Math.floor(Math.random()*6)]
+                            '這到底是甚麼閃現阿',][Math.floor(Math.random()*5)]
                         }
                     </p>
                 </>
                 }
             </Modal>
         </div>
+        <UI cost={cost} stageName={(state)?stages[state.stageID]?.name:'未確認關卡'}/>
+        </>
     )
 }
 export default BattleField;

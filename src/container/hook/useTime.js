@@ -10,7 +10,7 @@ const TimeContext = createContext({
 const TimeProvider = (props)=>{
     const [tick,setTick] = useState(0);
     const [timerState,setTimerState] = useState('pause');
-    const FRAME_PER_SEC = 25;
+    const FRAME_PER_SEC = 20;
     const [timerID,setTimerID] = useState(undefined);
 
     const timerPause = () => {

@@ -9,10 +9,13 @@ const UserInfoContext = createContext({
     troop:[],
     diamond:0,
     money:0,
+    gameProgress:1,
     yourCharacters: {},
     setYourCharacters: ()=>{},
     saveTroop:()=>{},
     setName:()=>{},
+    setWinStage:()=>{},
+    Gotcha:()=>{},
 })
 
 const UserInfoProvider = (props)=>{
@@ -27,7 +30,7 @@ const UserInfoProvider = (props)=>{
     const [yourCharacters, setYourCharacters] = useState({});
     // user Items: diamond & gold
     const [diamond,setDiamond] = useState(100);
-    const [money,setMoney] = useState(1000000);
+    const [money,setMoney] = useState(100);
     // gameProgress is how much stage you have cleared + 1
     const [gameProgress,setGameProgress] = useState(1);
 
@@ -42,16 +45,18 @@ const UserInfoProvider = (props)=>{
         // should be return after you finish initial user data
         // and then we set our userInfo to them
         // also this should be a post method
-        console.log(data);
+        //console.log(data);
 
         const getUser = data.data.user;
+        //console.log(getUser);
+
         //let getCharacters = {};
         //console.log(getUser.CharacterLevel);
         setYourCharacters(getUser.CharacterLevel);
         setDiamond(getUser.Diamond);
         setMoney(getUser.Gold);
         setTroop(getUser.Troop);
-        setGameProgress(getUser.Stage.length + 1);
+        setGameProgress(parseInt(getUser.Stage));
         setId(getUser.id);
         setName(getUser.name);
     }
@@ -71,13 +76,13 @@ const UserInfoProvider = (props)=>{
             }
         });
         const getUser = data.data.user;
-        console.log(getUser);
+        //console.log(getUser);
 
         setYourCharacters(getUser.CharacterLevel);
         setDiamond(getUser.Diamond);
         setMoney(getUser.Gold);
         setTroop(getUser.Troop);
-        setGameProgress(getUser.Stage.length + 1);
+        setGameProgress(getUser.Stage);
         setId(getUser.id);
         setName(getUser.name);
         return;
@@ -129,17 +134,17 @@ const UserInfoProvider = (props)=>{
     }
 
     const setWinStage = async({stageID}) => {
-        if(stageID < gameProgress -1)
-        return;
+        // if(stageID < gameProgress -1)
+        // return;
 
         const data = await instance.post('/FinishStage', {
             params: {
                 name,stageID,star:3,
             }
         });
-        console.log(data.data)
+        console.log(data.data);
         if(data.data.msg === 'unlock next stage'){
-            setGameProgress((old)=>(old+1));
+            setGameProgress((old)=>(data.data.gameProgress));
         }
         return;
     }

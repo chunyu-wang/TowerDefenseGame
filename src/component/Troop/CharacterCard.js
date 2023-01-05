@@ -6,7 +6,7 @@ const CharacterCard = ({name}) =>{
         >
             <img className = "CharacterImage"
             id={name+' character'}
-            src = {(name.length===1)?undefined:require('../img/'+name+'.png')}
+            src = {(name.length===1)?undefined:require('../img/icon/'+name+'.png')}
             draggable='true'
             onClick={(e)=>{e.preventDefault();}}
             onDrag={(e)=>{e.preventDefault();}}

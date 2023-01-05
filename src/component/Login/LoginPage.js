@@ -12,18 +12,19 @@ const LoginPage = () => {
     const navigate = useNavigate(); 
 
     const [messageApi, contextHolder] = message.useMessage();
+    
     const handleErrorCode = (errMsg) => {
         if(errMsg.includes('499')){
-            return 'Missing username or password.';
+            return '缺失帳號或密碼';
         }
         else if(errMsg.includes('498')){
-            return 'User name already exist, pick another user name instead.';
+            return '帳號名已存在';
         }
         else if(errMsg.includes('497')){
-            return 'Username doesn\'t exist.';
+            return '帳號名不存在';
         }
         else if(errMsg.includes('496')){
-            return 'Wrong password, try again.';
+            return '密碼錯誤';
         }
     }
     const switchType = () =>{
